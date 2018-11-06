@@ -105,6 +105,18 @@ UserAnalytics.prototype.post = function (streamName, data) {
     });
 };
 
+/**
+ * Converts a `Date` object into a `String` timestamp that Athena understands.
+ * @param {Date} date - The `Date` object to convert.
+ * @example
+ * var date = new Date();
+ * date.toISOString().replace(/T/, ' ').replace(/Z/, '');
+ * //=> '2018-11-06 21:45:32.080'
+ */
+UserAnalytics.toAthenaTimestamp = function (date) {
+  return date.toISOString().replace(/T/, ' ').replace(/Z/, '');
+};
+
 if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
   module.exports = UserAnalytics;
 } else {

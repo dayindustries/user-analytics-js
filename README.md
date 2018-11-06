@@ -20,18 +20,22 @@ var userAnalytics = new UserAnalytics({
   token: 'XXXX'
 });
 
- var data = {
-   event: "Signed Up",
-   properties: {
-     distinct_id: "1",
-     time: "2018-09-10T15:24:49-07:00",
-     ip: "71.198.38.200"
-   }
- }
- 
- userAnalytics.post('UserAnalytics', data).then(function (info) {
-   console.log(info);
- });
+var data = {
+  distinct_id: '1',
+  time: UserAnalytics.toAthenaTimestamp(new Date()),
+  ip: '71.198.38.200'
+  env: 'prod',
+  event: 'Signed Up',
+  subcategory: '',
+  event_id: '',
+  source: '',
+  os_version: '',
+  app_version: ''
+};
+
+userAnalytics.post('UserAnalytics', data).then(function (info) {
+  console.log(info);
+});
 ```
 
 ### In Browser JS
@@ -48,13 +52,17 @@ var userAnalytics = new UserAnalytics({
       });
 
       var data = {
-        event: "Signed Up",
-        properties: {
-          distinct_id: "1",
-          time: "2018-09-10T15:24:49-07:00",
-          ip: "71.198.38.200"
-        }
-      }
+        distinct_id: '1',
+        time: UserAnalytics.toAthenaTimestamp(new Date()),
+        ip: '71.198.38.200'
+        env: 'prod',
+        event: 'Signed Up',
+        subcategory: '',
+        event_id: '',
+        source: '',
+        os_version: '',
+        app_version: ''
+      };
 
       userAnalytics.post('UserAnalytics', data).then(function (info) {
         console.log(info);

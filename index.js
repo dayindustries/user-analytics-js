@@ -1,5 +1,15 @@
 ;(function () {
 
+var fetch;
+var headers;
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  fetch = require('node-fetch');
+  Headers = fetch.Headers;
+} else {
+  fetch = window.fetch;
+  Headers = window.Headers;
+}
+
 /**
  * Creates a UserAnalytics service object.
  * @constructor

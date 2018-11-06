@@ -28,7 +28,8 @@ var data = {
   event: 'Signed Up',
   subcategory: '',
   event_id: '',
-  source: '',
+  source: 'someservice',
+  client: 'ios',
   os_version: '',
   app_version: ''
 };
@@ -59,7 +60,8 @@ userAnalytics.post('UserAnalytics', data).then(function (info) {
         event: 'Signed Up',
         subcategory: '',
         event_id: '',
-        source: '',
+        source: 'someservice',
+        client: 'ios',
         os_version: '',
         app_version: ''
       };
